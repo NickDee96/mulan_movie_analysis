@@ -84,6 +84,15 @@ app.layout = dbc.Container([
             )  
         ]),
     ]),
+   dbc.Row([
+        dbc.Col([
+            html.P(
+                '''Twitter data was collected using Twitter's API while IMDB and Rotten Tomatoes' data was collected by webscraping'''
+            )
+        ])
+    ]),
+    html.Br(),
+    html.Br(),
     dbc.Row([
         dbc.Col([
             html.H3(
@@ -91,6 +100,13 @@ app.layout = dbc.Container([
                 style={
                     "text-align":"center"
                 }                
+            )
+        ])
+    ]),
+   dbc.Row([
+        dbc.Col([
+            html.P(
+                '''The Sentiment was calculated using a pretrained model through Huggingface's tranformers running on Kaggle.'''
             )
         ])
     ]),
@@ -126,6 +142,14 @@ app.layout = dbc.Container([
             ) 
         ]),
     ]),
+    dbc.Row([
+        dbc.Col([
+            html.P(
+                '''There's an overwhelming majority of Negative sentiment in Twitter reviews but we also have to take into consideration that twitter reviews are not as
+                detailed as in IMDB and Rotten tomatoes. Detailed reviews tend to tone down the sentiment through digging down to the nuances of a movie thereby diluting subjectivity.'''
+            )
+        ])
+    ]),
     html.Br(),
     dbc.Row([
         dbc.Col([
@@ -141,6 +165,9 @@ app.layout = dbc.Container([
         dbc.Col([
             dcc.Graph(
                 figure = get_time_series(time_df)
+            ),
+            html.P(
+                "There's a declining daily average sentiment over the past month as shown in the plot above."
             )
         ])
     ]),
@@ -154,6 +181,12 @@ app.layout = dbc.Container([
                 style={
                     "text-align":"center"
                 }                
+            ),
+            html.P(
+                "Topic modelling was carried out through Latent Dirichlet Allocation (LDA) with  assumes each topic is a mixture over an underlying set of words, and each document is a mixture of over a set of topic probabilities."
+            ),
+            html.P(
+                children="Click on any topic to view the most frequent words."
             )
         ])
     ]),    
@@ -167,6 +200,7 @@ app.layout = dbc.Container([
             ])
         ])
     ]),
+    html.Br(),
     dbc.Row([
         dbc.Col([
             html.H3(
@@ -174,6 +208,9 @@ app.layout = dbc.Container([
                 style={
                     "text-align":"center"
                 }                
+            ),
+            html.P(
+                children="Click on any topic to view the most frequent words."
             )
         ])
     ]),    
