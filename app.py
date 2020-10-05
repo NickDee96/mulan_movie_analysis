@@ -161,7 +161,7 @@ app.layout = dbc.Container([
         dbc.Col([
             html.Div([
                 html.Iframe(
-                    src=app.get_asset_url("lda2.html"),
+                    src=app.get_asset_url("positive_lda.html"),
                     style=dict( left="0", top="0", width="100%", height="1000px")
                 )
             ])
@@ -181,33 +181,12 @@ app.layout = dbc.Container([
         dbc.Col([
             html.Div([
                 html.Iframe(
-                    src=app.get_asset_url("lda.html"),
+                    src=app.get_asset_url("negative_lda.html"),
                     style=dict( left="0", top="0", width="100%", height="1000px")
                 )
             ])
         ])
     ]),
-    html.Br(),
-    dbc.Row([
-        dbc.Col([
-            html.H3(
-                children="Topic modelling for positive sentiment",
-                style={
-                    "text-align":"center"
-                }                
-            )
-        ])
-    ]),    
-    dbc.Row([
-        dbc.Col([
-            html.Div([
-                html.Iframe(
-                    src=app.get_asset_url("lda2.html"),
-                    style=dict( left="0", top="0", width="100%", height="1000px")
-                )
-            ])
-        ])
-    ])
 ])
 
 if __name__ == "__main__":
